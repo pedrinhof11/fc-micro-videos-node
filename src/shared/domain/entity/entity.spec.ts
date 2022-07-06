@@ -1,4 +1,4 @@
-import UniqueEntityId from "../valueObject/uniqueEntityId-vo";
+import UniqueEntityId from "../valueObject/unique-entity-id.vo";
 import Entity from "./entity";
 
 class StubEntity extends Entity<{ name: string; age: number }> {}

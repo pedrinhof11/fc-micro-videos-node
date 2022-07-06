@@ -1,4 +1,4 @@
-import ValueObject from "./valueObject";
+import ValueObject from "./value-object";
 
 class StubVulueObject extends ValueObject {}
 

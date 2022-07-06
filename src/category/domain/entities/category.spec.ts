@@ -1,13 +1,17 @@
 import { omit } from "lodash";
 import { Category } from "./category";
-import UniqueEntityId from "../../../shared/domain/valueObject/uniqueEntityId-vo";
+import UniqueEntityId from "../../../shared/domain/valueObject/unique-entity-id.vo";
 
 describe("Category Unit Tests", () => {
+  beforeEach(() => {
+    Category.validate = jest.fn();
+  });
   it("should create category with only name", () => {
     const category = new Category({
       name: "movie",
     });
     const props = omit(category.props, "createdAt");
+    expect(Category.validate).toBeCalledTimes(1);
     expect(props).toStrictEqual({
       name: "movie",
       description: "",
@@ -21,6 +25,7 @@ describe("Category Unit Tests", () => {
       description: "description movie",
     });
     const props = omit(category.props, "createdAt");
+    expect(Category.validate).toBeCalledTimes(1);
     expect(props).toStrictEqual({
       name: "movie",
       description: "description movie",
@@ -35,6 +40,7 @@ describe("Category Unit Tests", () => {
       isActive: false,
     });
     const props = omit(category.props, "createdAt");
+    expect(Category.validate).toBeCalledTimes(1);
     expect(props).toStrictEqual({
       name: "movie",
       description: "",
@@ -49,6 +55,7 @@ describe("Category Unit Tests", () => {
       name: "movie",
       createdAt,
     });
+    expect(Category.validate).toBeCalledTimes(1);
     expect(category.props).toStrictEqual({
       name: "movie",
       description: "",
@@ -151,6 +158,7 @@ describe("Category Unit Tests", () => {
   it("should update a category", () => {
     const category = new Category({ name: "Movie" });
     category.update("Documentary", "some description");
+    expect(Category.validate).toBeCalledTimes(2);
     expect(category.name).toBe("Documentary");
     expect(category.description).toBe("some description");
   });

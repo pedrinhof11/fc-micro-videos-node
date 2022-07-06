@@ -1,4 +1,4 @@
-import UniqueEntityId from "../valueObject/uniqueEntityId-vo";
+import UniqueEntityId from "../valueObject/unique-entity-id.vo";
 
 type entityToJSON<Props> = Required<{ id: string } & Props>;
 
