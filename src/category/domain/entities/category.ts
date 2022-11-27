@@ -1,7 +1,7 @@
 import ValidatorRules from "../../../shared/validators/validator-rules";
 import Entity from "../../../shared/domain/entity/entity";
 import UniqueEntityId from "../../../shared/domain/valueObject/unique-entity-id.vo";
-import { validate } from "uuid";
+
 export type CategoryProps = {
   name: string;
   description?: string;

@@ -5,7 +5,7 @@ export default class ValidatorRules {
     return new ValidatorRules(value, property);
   }
 
-  private constructor(private value, private property: string) {}
+  private constructor(private value: any, private property: string) {}
 
   required(): this {
     if (this.value === null || this.value === undefined || this.value === "") {
@@ -38,4 +38,4 @@ export default class ValidatorRules {
   }
 }
 
-const isNullOrUndefined = (value) => value === null || value === undefined;
+const isNullOrUndefined = (value: any) => value === null || value === undefined;

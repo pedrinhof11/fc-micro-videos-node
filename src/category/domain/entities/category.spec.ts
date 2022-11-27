@@ -1,5 +1,5 @@
 import { omit } from "lodash";
-import { Category } from "./category";
+import { Category, CategoryProps } from "./category";
 import UniqueEntityId from "../../../shared/domain/valueObject/unique-entity-id.vo";
 
 describe("Category Unit Tests", () => {
@@ -141,7 +141,7 @@ describe("Category Unit Tests", () => {
   });
 
   it("should create uuid after created", () => {
-    const data = [
+    const data: { props: CategoryProps; id?: UniqueEntityId }[] = [
       { props: { name: "movie" } },
       { props: { name: "movie" }, id: new UniqueEntityId() },
     ];
